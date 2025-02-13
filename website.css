@@ -15,7 +15,7 @@ h2 {
 }
 
 div {
-  background-color: whitesmoke;
+  background: whitesmoke;
   border-radius: 25px;  
   padding: 40px; 
   width: 80%;  
