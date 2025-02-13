@@ -1,8 +1,15 @@
-body {
+body.main {
   background-color: #F9E4BC;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 100px 100px 100px 100px;
+
 }
 
 h1 {
+  color: #2E1308;
+  text-align: center;
+}
+h2 {
   color: #2E1308;
   text-align: center;
 }
