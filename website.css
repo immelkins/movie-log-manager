@@ -17,8 +17,34 @@ h2 {
 #innerbox {
   border-radius: 25px;  
   background: whitesmoke;
-  padding: 40px; 
-  width: 80%;  
+  padding: 25px; 
+  width: 100%;  
+}
+
+#popup {
+  border-radius: 25px;  
+  padding: 25px; 
+  background: rgb(105, 91, 91); 
+  z-index: 1000;  
+}
+
+.popup-overlay {
+  /*display: none; /* Hidden by default */
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: rgba(75, 45, 45, 0.5); /* Semi-transparent background */
+  z-index: 1000; /* Bring it to the front */
+}
+
+.submit-btn {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  color: blue;
+
 }
 
 p {
