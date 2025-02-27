@@ -38,24 +38,52 @@ button {
   position: fixed;
   border-radius: 25px;  
   padding: 25px; 
-  top: 25%;
+  top: 20%;
   left: 25%;
   width: 50%;
-  height: 50%;
+  height: 65%;
   background: rgb(105, 91, 91); 
   z-index: 1000; /* Bring it to the front */
 }
 
 .popup-submit-btn {
   position: fixed;
-  bottom: 30%;
+  bottom: 20%;
   right: 30%;
   color: blue;
 }
 
 .popup-close-btn {
   position: fixed;
-  bottom: 30%;
+  bottom: 20%;
   left: 30%;
   color: blue;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }

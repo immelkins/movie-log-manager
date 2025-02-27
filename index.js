@@ -76,7 +76,6 @@ window.onload = function() {
   }
 
   //CODE FOR BUTTONS
-
   // Open Popup
   openPopupBtn.addEventListener("click", () => {
       popup.style.display = "flex";
