@@ -14,6 +14,14 @@ h2 {
   text-align: center;
 }
 
+p {
+  color: #87553B;
+}
+
+button {
+  color: #FF6363;
+}
+
 #innerbox {
   border-radius: 25px;  
   background: whitesmoke;
@@ -21,36 +29,33 @@ h2 {
   width: 100%;  
 }
 
-#popup {
+.puset{
+  color: aliceblue;
+
+}
+.popup-overlay {
+  display: none; 
+  position: fixed;
   border-radius: 25px;  
   padding: 25px; 
-  background: rgb(105, 91, 91); 
-  z-index: 1000;  
-}
-
-.popup-overlay {
-  /*display: none; /* Hidden by default */
-  position: fixed;
   top: 25%;
   left: 25%;
   width: 50%;
   height: 50%;
-  background: rgba(75, 45, 45, 0.5); /* Semi-transparent background */
+  background: rgb(105, 91, 91); 
   z-index: 1000; /* Bring it to the front */
 }
 
-.submit-btn {
+.popup-submit-btn {
   position: fixed;
-  bottom: 10%;
-  right: 10%;
+  bottom: 30%;
+  right: 30%;
   color: blue;
-
 }
 
-p {
-  color: #87553B;
-}
-
-button {
-  color: #FF6363;
+.popup-close-btn {
+  position: fixed;
+  bottom: 30%;
+  left: 30%;
+  color: blue;
 }
