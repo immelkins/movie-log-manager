@@ -12,42 +12,64 @@
     <title>Movie Logger</title>
   </head>
   <body class = 'main'>
-      <h1>Movie Tracker</h1>
-      <h2>Track and Rate the Latest Movies</h2>
-      <br/>
+    <h1>Movie Tracker</h1>
+    <h2>Track and Rate the Latest Movies</h2>
+    <br/>
 
-      <div id = 'innerbox'>
-        <div id = 'movie' class = 'movie-layout'>
-          <!-- Display Movie List -->
-          <h2>My Movie List</h2>
-          <br />
-          <div id = 'movies-container'></div>
+    <div id = 'innerbox'>
+      <div id = 'movie' class = 'movie-layout'>        
+        
+        <!-- Search Through Movie List -->
+        <input type = 'text' id = 'search-bar' placeholder = 'Search for a movie by Title or Director...'>
+        <button id = 'search-button'>Search</button>
+
+        <!-- Display Movie List -->
+        <h2>My Movie List</h2>
+        <br /><div id = 'movies-container'></div>
+
+        <!-- Modify A Movie Popup -->
+        <div id = 'edit-popup' class = 'popup-overlay'>
+          <div class = 'popup-content'>
+            <h2>Edit Movie</h2>
+
+            <input type = 'text' id = 'edit-movie-title' placeholder = 'Movie Title'>
+            <input type = 'text' id = 'edit-movie-genre' placeholder = 'Genre'>
+            <input type = 'text' id = 'edit-movie-by' placeholder = 'Director/Creator'>
+            <input type = 'number' id = 'edit-movie-year' placeholder = 'Release Year' min = '1800' max = '2100'>
+            <input type = 'number' id = 'edit-movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
+            <input type = 'text' id = 'edit-movie-status' placeholder = 'Status (e.g., Finished)'>
+            
+            <button id = 'close-edit-popup'>Cancel</button>
+            <button id = 'save-edit-popup'>Save</button>
+          </div>
+        </div>
         <p>blah blah blah other stuff</p>
-        <button id = 'open-popup' > Add New Movie </button>        
+        <button id = 'open-popup' > Add New Movie </button>   
       </div>
-      </div>
-      <!-- Popup Window -->
-      <div id = 'popup-window' class = 'popup-overlay'>
-        <div class = 'popup-content'>
-          <h2 class = 'puset'>Add A New Movie </h2>
-          <p class="puset"> This (<span style="color: red;">*</span>) indicates required fields. </p>
+    </div>
+     
+    <!-- Add Movie Popup  -->
+    <div id = 'add-popup' class = 'popup-overlay'>
+      <div class = 'popup-content'>
+        <h2 class = 'puset'>Add A New Movie </h2>
+        <p class = 'puset'> This (<span style = 'color: red;'>*</span>) indicates required fields. </p>
 
-          <input type='text' id = 'movie-title' placeholder = 'Movie Title'>
-          <br /><input type='text' id = 'movie-genre' placeholder = 'Genre'>
-          <br /><input type='text' id = 'movie-by' placeholder = 'Director/Creator'>
-          <br /><input type='number' id = 'movie-year' placeholder = 'Release Year' min = '1800' max = '2100'>
-          <br /><input type='number' id = 'movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
-          <br /><label for = "Watch Status">STATUS:</label>
-          <select name = "watch status" id="movie-status">
-            <option value = "Not Watched">Not Watched</option>
-            <option value = "Started">Started</option>
-            <option value = "Finished">Finished</option>
-          </select> 
+        <input type='text' id = 'movie-title' placeholder = 'Movie Title'>
+        <br /><input type = 'text' id = 'movie-genre' placeholder = 'Genre'>
+        <br /><input type = 'text' id = 'movie-by' placeholder = 'Director/Creator'>
+        <br /><input type = 'number' id = 'movie-year' placeholder = 'Release Year' min = '1800' max = '2100'>
+        <br /><input type = 'number' id = 'movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
+        <br /><label for = 'Watch Status'>STATUS:</label>
+        <select name = 'watch status' id='movie-status'>
+          <option value = 'Not Watched'>Not Watched</option>
+          <option value = 'Started'>Started</option>
+          <option value = 'Finished'>Finished</option>
+        </select> 
 
         <button id = 'close-popup' class = 'popup-close-btn'> Close </button>
         <button id = 'submit-popup' class ='popup-submit-btn'> Submit </button>
-      </div>
-  </div>
+      </div>       
+    </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script type = 'module' src = 'index.js'></script>
