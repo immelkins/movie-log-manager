@@ -14,48 +14,47 @@ window.onload = function() {
   function displayMovies(movieList) {
     const container = document.getElementById('movies-container');
     container.innerHTML = `
-        <table class="table table-striped ">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Genre</th>
-                    <th>Director</th>
-                    <th>Year</th>
-                    <th>Rating</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="movie-table-body"></tbody>
-        </table>
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Rating</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="movie-table-body"></tbody>
+      </table>
     `;
+
     const tableBody = document.getElementById('movie-table-body');
 
-    
     movieList.forEach(movie => {
-        const row = `
-            <tr>
-                <td>${movie.title}</td>
-                <td>${movie.genre}</td>
-                <td>${movie.movieBy}</td>
-                <td>${movie.movieDate}</td>
-                <td>${movie.rating}/10</td>
-                <td>${movie.status}</td>
-                <td>
-                    <button class="edit-btn btn" data-index="${movie.movieID - 1}">Edit</button>
-                </td>
-            </tr>
-        `;
-        tableBody.innerHTML += row;
-        document.querySelectorAll('.edit-btn').forEach(button => {
-          button.addEventListener("click", function() {
-              const index = this.getAttribute("data-index");
-              openEditPopup(index);
-          });
-      });
-    });
+      const row = `
+        <tr>
+          <td>${movie.title}</td>
+          <td>${movie.genre}</td>
+          <td>${movie.movieBy}</td>
+          <td>${movie.movieDate}</td>
+          <td>${movie.rating}/10</td>
+          <td>${movie.status}</td>
+          <td>
+            <button class="edit-btn btn" data-index="${movie.movieID - 1}">Edit</button>
+          </td>
+        </tr>
+      `;
 
-    
+      tableBody.innerHTML += row;
+      document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener("click", function() {
+          const index = this.getAttribute("data-index");
+            openEditPopup(index);
+        });
+      });
+    }); 
   }
 
   function addMovie(){
@@ -125,7 +124,7 @@ window.onload = function() {
         saveEditMovie(index);
     };
   }
-  
+
   function saveEditMovie(index) {
     const updateMovie = {
         movieID: model.data.movies[index].movieID,
@@ -144,7 +143,7 @@ window.onload = function() {
     }
 
     // Update & Reload
-    model.data.movies[index] = updatedMovie;
+    model.data.movies[index] = updateMovie;
     displayMovies(model.data.movies);
 
     // Close edit popup

@@ -9,6 +9,7 @@ h1 {
   color: #2E1308;
   text-align: center;
 }
+
 h2 {
   color: #87553B;
   text-align: center;
@@ -31,8 +32,8 @@ button {
 
 .puset{
   color: aliceblue;
-
 }
+
 .popup-overlay {
   display: none; 
   position: fixed;
@@ -44,8 +45,12 @@ button {
   height: 65%;
   background: rgb(105, 91, 91); 
   z-index: 1000; /* Bring it to the front */
-}
 
+  
+}
+.popup-field{
+  display: flex; align-items: center; gap: 5px
+}
 .popup-submit-btn {
   position: fixed;
   bottom: 20%;
@@ -58,15 +63,6 @@ button {
   bottom: 20%;
   left: 30%;
   color: blue;
-}
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
 input[type=number], select {
