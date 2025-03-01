@@ -3,7 +3,7 @@ export default class Model {
         this.data = {
             movies: [
                 { 
-                    movieID: 1,
+                    movieID: 0,
                     title: 'A Beautiful Mind',
                     genre: 'Drama; Biography',
                     movieBy: 'Ron Howard',
@@ -12,7 +12,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 2,
+                    movieID: 1,
                     title: 'The Lord of the Rings: The Return of the King',
                     genre: 'Drama; Action; Adventure',
                     movieBy: 'Peter Jackson',
@@ -21,7 +21,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 3,
+                    movieID: 2,
                     title: 'North by Northwest',
                     genre: 'Adventure; Action; Mystery',
                     movieBy: 'Alfred Hitchcock',
@@ -30,7 +30,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 4,
+                    movieID: 3,
                     title: 'Paths of Glory',
                     genre: 'Drama; War',
                     movieBy: 'Stanley Kubrick',
@@ -39,7 +39,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 5,
+                    movieID: 4,
                     title: 'Heat',
                     genre: 'Drama; Crime; Action',
                     movieBy: 'Michael Mann',
@@ -48,7 +48,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 6,
+                    movieID: 5,
                     title: '12 Years a Slave',
                     genre: 'Drama; History; Biography',
                     movieBy: 'Steve McQueen',
@@ -57,7 +57,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 7,
+                    movieID: 6,
                     title: 'Room',
                     genre: 'Drama; Thriller',
                     movieBy: 'Lenny Abrahamson',
@@ -66,7 +66,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 8,
+                    movieID: 7,
                     title: 'Before Sunrise',
                     genre: 'Drama; Romance',
                     movieBy: 'Richard Linklater',
@@ -75,7 +75,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 9,
+                    movieID: 8,
                     title: 'The Good, the Bad and the Ugly',
                     genre: 'Adventure; Western',
                     movieBy: 'Sergio Leone',
@@ -84,7 +84,7 @@ export default class Model {
                     status: "Finished",
                 },
                 { 
-                    movieID: 10,
+                    movieID: 9,
                     title: 'The Apartment',
                     genre: 'Drama; Romance; Comedy',
                     movieBy: 'Billy Wilder',

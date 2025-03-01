@@ -43,7 +43,7 @@ window.onload = function() {
           <td>${movie.rating}/10</td>
           <td>${movie.status}</td>
           <td>
-            <button class="edit-btn btn" data-index="${movie.movieID - 1}">Edit</button>
+            <button class="edit-btn btn" data-index="${movie.movieID}">Edit</button>
           </td>
         </tr>
       `;
@@ -153,15 +153,22 @@ window.onload = function() {
     document.getElementById('edit-popup').style.display = "none";
   }
 
-  function deleteEditMovie(index) {
-        
-    //Update & Reload
-    model.data.movies.splice(index);
+  function deleteEditMovie(index) { 
+    //Removes only Object at Index from array Movies
+    model.data.movies.splice(index, 1);
+
+    //After removing, renumber the movieID from 0 -->
+    model.data.movies.forEach((movie, newMovieID) => {
+      movie.movieID = newMovieID;
+    });
+
+    // Update & Reload
     displayMovies(model.data.movies);
-    
+
     // Close edit popup
     document.getElementById('edit-popup').style.display = "none";
   }
+
   //FOR BUTTONS
   // Open Add Movie Popup
   openPopupBtn.addEventListener("click", () => {
