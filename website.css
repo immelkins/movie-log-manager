@@ -26,31 +26,40 @@ button {
 #innerbox {
   border-radius: 25px;  
   background: whitesmoke;
+  min-width: 600px; 
   padding: 25px; 
   width: 100%;  
 }
 
 .puset{
   color: aliceblue;
+  text-align: center;
 }
 
 .popup-overlay {
   display: none; 
   position: fixed;
   border-radius: 25px;  
-  padding: 25px; 
+  padding-left: 15%; 
+  padding-top: 25px;
+
   top: 20%;
   left: 25%;
   width: 50%;
   height: 65%;
   background: rgb(105, 91, 91); 
-  z-index: 1000; /* Bring it to the front */
+  z-index: 1000;
+  min-width: 450px; 
+}
 
-  
+.popup-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
-.popup-field{
-  display: flex; align-items: center; gap: 5px
-}
+
 .popup-submit-btn {
   position: fixed;
   bottom: 20%;
@@ -65,25 +74,29 @@ button {
   color: blue;
 }
 
-input[type=number], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-input[type=text], select {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+input[type=text]:focus {
+  border: 1px solid #291515;
 }
 
-input[type=text]:focus {
-  border: 3px solid #555;
+.popup-overlay input[type="text"], 
+.popup-overlay input[type="number"], 
+.popup-overlay select {
+  width: 80%; 
+  min-width: 300px; 
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  appearance: none;
+  margin: 8px 0;
+}
+
+.group{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#movie-status option[disabled] {
+  color: gray;
 }
