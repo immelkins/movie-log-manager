@@ -60,19 +60,33 @@ button {
   width: 100%;
 }
 
+.popup-delete-btn {
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  color: red;
+}
 .popup-submit-btn {
   position: fixed;
   bottom: 20%;
   right: 30%;
-  color: blue;
+  color: green;
 }
 
 .popup-close-btn {
   position: fixed;
   bottom: 20%;
   left: 30%;
+  color: red;
+}
+
+.close-edit-popup{
+  position: fixed;
+  bottom: 20%;
+  left: 30%;
   color: blue;
 }
+
 
 input[type=text]:focus {
   border: 1px solid #291515;
