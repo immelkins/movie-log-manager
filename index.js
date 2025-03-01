@@ -8,9 +8,10 @@ window.onload = function() {
   const closePopupBtn = document.getElementById("close-popup");
   const submitBtn = document.getElementById("submit-popup");
 
-  displayMovies(model.data.movies);
 
   //List all Movies by default
+  displayMovies(model.data.movies);
+
   function displayMovies(movieList) {
     const container = document.getElementById('movies-container');
     container.innerHTML = `
@@ -120,9 +121,11 @@ window.onload = function() {
     document.getElementById('edit-popup').style.display = "flex";
 
     // Set event listener for saving changes
-    document.getElementById('save-edit-popup').onclick = function() {
-        saveEditMovie(index);
-    };
+    document.getElementById('save-edit-popup').onclick = function() 
+      { saveEditMovie(index); };
+    //Set event listener for deleting a movie row
+    document.getElementById('delete-edit-popup').onclick = function() 
+      { deleteEditMovie(index); };
   }
 
   function saveEditMovie(index) {
@@ -150,6 +153,15 @@ window.onload = function() {
     document.getElementById('edit-popup').style.display = "none";
   }
 
+  function deleteEditMovie(index) {
+        
+    //Update & Reload
+    model.data.movies.splice(index);
+    displayMovies(model.data.movies);
+    
+    // Close edit popup
+    document.getElementById('edit-popup').style.display = "none";
+  }
   //FOR BUTTONS
   // Open Add Movie Popup
   openPopupBtn.addEventListener("click", () => {
