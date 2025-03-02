@@ -170,44 +170,28 @@ window.onload = function() {
         genre: document.getElementById('edit-movie-genre').value.trim(),
         director: document.getElementById('edit-movie-by').value.trim(),
         movieDate: parseInt(document.getElementById('edit-movie-year').value),
-        rating: Math.round(parseFloat(document.getElementById('movie-rating').value) * 10)/10,
+        rating: Math.round(parseFloat(document.getElementById('edit-movie-rating').value) * 10)/10,
         status: document.getElementById('edit-movie-status').value
     };
 
-    if(!updateMovie.title && !updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030) && updateMovie.status == '') 
-      { alert('Please fill in a Title, Director, Release Year (1800 - 2030), and Select Status'); return; }
-    else if(!updateMovie.title && !updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)) 
+    if(!updateMovie.title && !updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)) 
       { alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
-    else if (!updateMovie.title && !updateMovie.director && updateMovie.status == '')
-      { alert('Please fill in a Title, Director, and Select Status'); return; }  
-    else if (!updateMovie.title && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030) && updateMovie.status == '')
-      { alert('Please fill in a Title and a valid Release Year (1800 - 2030), and Select Status'); return; }
-    else if(!updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030) && updateMovie.status == '') 
-      { alert('Please fill in a Director, Release Year (1800 - 2030), and Select Status'); return; }
     else if (!updateMovie.title && !updateMovie.director)
       { alert('Please fill in a Title and Director'); return; }
     else if (!updateMovie.title && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030))
-      { alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; }
-    else if (!updateMovie.title && updateMovie.status == '')
-      { alert('Please fill in a Title and Select Status'); return; }  
+      { alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; } 
     else if (!updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030))
       { alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
-    else if (!updateMovie.director && updateMovie.status == '')
-      { alert('Please fill in a Director and Select Status'); return; }
-    else if ((updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030) && updateMovie.status == '')
-      { alert('Please fill in a valid Release Year (1800 - 2030) and Select Status'); return; }
     else if (!updateMovie.title)
       { alert('Please fill in a Title'); return; }
     else if (!updateMovie.director)
       { alert('Please fill in a Director'); return; }
     else if (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)
       { alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
-    else if (updateMovie.status == '')
-      { alert('Please Select Status'); return; }
 
     if(isNaN(updateMovie.movieDate) || updateMovie.movieDate == '') 
       { updateMovie.movieDate = ' - - - - '; }
-
+    
     if(isNaN(updateMovie.rating) || updateMovie.rating == '') 
       { updateMovie.rating = ' - '; }
     else if(updateMovie.rating < 0 || updateMovie.rating > 10) 

@@ -89,7 +89,7 @@ button {
 
 
 input[type=text]:focus {
-  border: 1px solid #291515;
+  border: 1px solid #17427a;
 }
 
 .popup-overlay input[type="text"], 
@@ -113,4 +113,15 @@ input[type=text]:focus {
 
 #movie-status option[disabled] {
   color: gray;
+}
+
+input[type="text"], select {
+  width: 75%; 
+  min-width: 300px; 
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  appearance: none;
+  margin: 8px 0;
 }
