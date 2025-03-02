@@ -4,7 +4,7 @@ window.onload = function() {
   // Get elements
   const model = new Model();
   const popup = document.getElementById("add-popup");
-  const openPopupBtn = document.getElementById("open-popup");
+  const addPopupBtn = document.getElementById("add-btn");
   const closePopupBtn = document.getElementById("close-popup");
   const submitBtn = document.getElementById("submit-popup");
 
@@ -15,7 +15,7 @@ window.onload = function() {
   function displayMovies(movieList) {
     const container = document.getElementById('movies-container');
     container.innerHTML = `
-      <table class="table table-striped ">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>Title</th>
@@ -130,11 +130,23 @@ window.onload = function() {
         return;
     }
     // Filter movies by title or director
-    const filteredMovies = model.data.movies.filter(movie => 
+    const searchedMovies = model.data.movies.filter(movie => 
         movie.title.toLowerCase().includes(searchInput) || 
         movie.director.toLowerCase().includes(searchInput)
     );
+    document.getElementById('search-bar').value = '';
     // If no movies are found display a message
+    if (searchedMovies.length === 0)
+      document.getElementById('movies-container').innerHTML = "<p>No movies found :( </p>";
+    else 
+      displayMovies(searchedMovies);
+  }
+
+  function filterMovies(filterInput) {
+    const filteredMovies = model.data.movies.filter(movie => 
+      movie.status === filterInput
+    );
+    //If no movies are found display a message
     if (filteredMovies.length === 0)
       document.getElementById('movies-container').innerHTML = "<p>No movies found :( </p>";
     else 
@@ -233,7 +245,7 @@ window.onload = function() {
 
   //FOR BUTTONS
   // Open Add Movie Popup
-  openPopupBtn.addEventListener("click", () => {
+  addPopupBtn.addEventListener("click", () => {
       popup.style.display = "flex";
   });
 
@@ -246,7 +258,18 @@ window.onload = function() {
   submitBtn.addEventListener("click", addMovie);
 
   // Search for a Movie in searchbar
-  document.getElementById('search-button').addEventListener("click", searchMovie);
+  document.getElementById('search-btn').addEventListener("click", searchMovie);
+  
+
+  document.getElementById('filter-by-nw-btn').addEventListener("click", function() {
+    filterMovies('Not Watched');
+  });
+  document.getElementById('filter-by-s-btn').addEventListener("click", function() {
+    filterMovies('Started');
+  });
+  document.getElementById('filter-by-f-btn').addEventListener("click", function() {
+    filterMovies('Finished');
+  });
 
   // Close Edit Movie Popup
   document.getElementById('close-edit-popup').addEventListener("click", function() {

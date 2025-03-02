@@ -22,15 +22,25 @@
         
         <!-- Search Through Movie List -->
         <input type = 'text' id = 'search-bar' placeholder = 'Search for a movie by Title or Director...'>
-        <button id = 'search-button'>Search</button>
+        <button id = 'search-btn'>Search</button>
 
         <!-- Filter Through Movie List -->
-        <button id = 'filterby-button'>Filter</button>
+        <div class = 'dropdown'>
+          <button id = 'filter-btn'>Filter</button>
+          <div class = 'dropdown-content'>
+            <p class = 'filter-category'>Status:</p>
+            <div class = 'dropdown-options'>
+              <button id = 'filter-by-nw-btn'>Not Watched</button>
+              <button id = 'filter-by-s-btn'>Started</button>
+              <button id = 'filter-by-f-btn'>Finished</button>
+            </div>
+          </div>
+        </div>
 
         <!-- Display Movie List -->
         <br /><div id = 'movies-container'></div>   
         <p>blah blah blah other stuff</p>
-        <button id = 'open-popup' > Add A Movie </button>   
+        <button id = 'add-btn'> Add A Movie </button>   
       </div>
     </div>
     <!-- Edit Movie Popup -->
@@ -81,6 +91,7 @@
         <br />
       </div>
     </div> 
+
     <!-- Add Movie Popup  -->
     <div id = 'add-popup' class = 'popup-overlay'>
       <div class = 'popup-content'>
