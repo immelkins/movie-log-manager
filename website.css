@@ -209,9 +209,17 @@ input[type=text]:focus {
     left: 80%;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 550px) {
   #innerbox {
-    min-width: 100px; 
+    min-width: 150px; 
+  }
+  #add-btn {
+    left: 80%;
+  }
+}
+@media (max-width: 450px) {
+  #innerbox {
+    min-width: 75px; 
   }
   #add-btn {
     left: 80%;
