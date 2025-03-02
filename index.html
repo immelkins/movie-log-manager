@@ -28,97 +28,108 @@
         <button id = 'filterby-button'>Filter</button>
 
         <!-- Display Movie List -->
-        <br /><div id = 'movies-container'></div>
-
-        <!-- Edit Movie Popup -->
-        <div id = 'edit-popup' class = 'popup-overlay'>
-          <div class = 'popup-content'>
-            <h2 class = 'puset'> Edit Movie</h2>
-            <p class = 'puset'> This (<span style = 'color: red;'>*</span>) indicates required fields. </p>
-            <div class = 'popup-field'>
-              <div class = 'group'>
-                <input type = 'text' id = 'edit-movie-title' placeholder = 'Movie Title'>
-                <span style = 'color: red;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'text' id = 'edit-movie-genre' placeholder = 'Genre'>
-                <span style = 'visibility: hidden;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'text' id = 'edit-movie-by' placeholder = 'Director/Creator'>
-                <span style = 'color: red;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'number' id = 'edit-movie-year' placeholder = 'Release Year' min = '1800' max = '2100'>
-                <span style = 'visibility: hidden;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'number' id = 'edit-movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
-                <span style = 'visibility: hidden;'>*</span>
-              </div>
-              <div class = 'group'>
-                <select name = 'edit-watch-status' id = 'edit-movie-status'>
-                  <option value = 'Not Watched'>Not Watched</option>
-                  <option value = 'Started'>Started</option>
-                  <option value = 'Finished'>Finished</option>
-                </select> 
-                <span style = 'color: red;'>*</span>
-              </div>
-            </div>
-            <button id = 'delete-edit-popup' class = 'popup-delete-btn'>Delete</button>
-            <button id = 'close-edit-popup' class = 'popup-close-btn'>Cancel</button>
-            <button id = 'save-edit-popup' class = 'popup-submit-btn'>Save</button>
-          </div>
-        </div> 
-      </div>
-      <p>blah blah blah other stuff</p>
-      <button id = 'open-popup' > Add New Movie </button>   
-      
-        <!-- Add Movie Popup  -->
-        <div id = 'add-popup' class = 'popup-overlay'>
-          <div class = 'popup-content'>
-            <h2 class = 'puset'>Add A New Movie </h2>
-            <p class = 'puset'> This (<span style = 'color: red;'>*</span>) indicates required fields. </p>
-      
-            <div class = 'popup-field'>
-              <div class = 'group'> 
-                <input type = 'text' id = 'movie-title' placeholder = 'Movie Title'>
-                <span style = 'color: red;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'text' id = 'movie-genre' placeholder = 'Genre'>
-                <span style = 'visibility: hidden;'>*</span>
-              </div>
-              <div class = 'group'> 
-                <input type = 'text' id = 'movie-by' placeholder = 'Director'>
-                <span style = 'color: red;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'number' id = 'movie-year' placeholder = 'Release Year' min = '1800' max = '2050'>
-                <span style = 'visibility: hidden;'>*</span>
-              </div>
-              <div class = 'group'>
-                <input type = 'number' id = 'movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
-                <span style = 'visibility: hidden;'>*</span>
-              </div>
-              <div class = 'group'> 
-                <div class = 'custom-select'>
-                  <select name = 'watch status' id = 'movie-status'>
-                    <option value = '' disabled selected>-- Select Status --</option>
-                    <option value = 'Not Watched'>Not Watched</option>
-                    <option value = 'Started'>Started</option>
-                    <option value = 'Finished'>Finished</option>
-                  </select> 
-                </div>
-                <span style = 'color: red;'>*</span>
-              </div>
-                <button id = 'close-popup' class = 'popup-close-btn'> Close </button>
-                <button id = 'submit-popup' class = 'popup-submit-btn'> Submit </button>
-            </div>       
-          </div>
-        </div>
+        <br /><div id = 'movies-container'></div>   
+        <p>blah blah blah other stuff</p>
+        <button id = 'open-popup' > Add New Movie </button>   
       </div>
     </div>
+    <!-- Edit Movie Popup -->
+    <div id = 'edit-popup' class = 'popup-overlay'>
+      <div class = 'popup-content'>
+        <h2 class = 'puset'> Edit Movie</h2>
+        <p class = 'puset'> This (<span style = 'color: red;'>*</span>) indicates required fields. </p>
+        <div class = 'popup-field'>
+          <div class = 'group'>
+            <input type = 'text' id = 'edit-movie-title' placeholder = 'Movie Title'>
+            <span style = 'color: red;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'text' id = 'edit-movie-genre' placeholder = 'Genre'>
+            <span style = 'visibility: hidden;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'text' id = 'edit-movie-by' placeholder = 'Director/Creator'>
+            <span style = 'color: red;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'number' id = 'edit-movie-year' placeholder = 'Release Year' min = '1800' max = '2100'>
+            <span style = 'visibility: hidden;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'number' id = 'edit-movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
+            <span style = 'visibility: hidden;'>*</span>
+          </div>
+          <div class = 'group'>
+            <select name = 'edit-watch-status' id = 'edit-movie-status'>
+              <option value = 'Not Watched'>Not Watched</option>
+              <option value = 'Started'>Started</option>
+              <option value = 'Finished'>Finished</option>
+            </select> 
+            <span style = 'color: red;'>*</span>
+          </div>
+        </div>
+        <br />
+        <div class = 'group'>
+          <button id = 'close-edit-popup' class = 'popup-close-btn'>Cancel</button>
+          <span style = 'visibility: hidden;'>***************************</span>
+          <button id = 'save-edit-popup' class = 'popup-submit-btn'>Save</button>
+        </div>
+        <br />
+        <br />
+        <button id = 'delete-edit-popup' class = 'popup-delete-btn'>Delete</button>
+        <br />
+        <br />
+      </div>
+    </div> 
+    <!-- Add Movie Popup  -->
+    <div id = 'add-popup' class = 'popup-overlay'>
+      <div class = 'popup-content'>
+        <h2 class = 'puset'>Add A New Movie </h2>
+        <p class = 'puset'> This (<span style = 'color: red;'>*</span>) indicates required fields. </p>
+          
+        <div class = 'popup-field'>
+          <div class = 'group'> 
+            <input type = 'text' id = 'movie-title' placeholder = 'Movie Title'>
+            <span style = 'color: red;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'text' id = 'movie-genre' placeholder = 'Genre'>              
+            <span style = 'visibility: hidden;'>*</span>
+          </div>
+          <div class = 'group'> 
+            <input type = 'text' id = 'movie-by' placeholder = 'Director'>
+            <span style = 'color: red;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'number' id = 'movie-year' placeholder = 'Release Year' min = '1800' max = '2050'>
+            <span style = 'visibility: hidden;'>*</span>
+          </div>
+          <div class = 'group'>
+            <input type = 'number' id = 'movie-rating' placeholder = 'Rating (0-10)' min = '0' max = '10'>
+            <span style = 'visibility: hidden;'>*</span>
+          </div>
+          <div class = 'group'> 
+            <div class = 'custom-select'>
+              <select name = 'watch status' id = 'movie-status'>
+                <option value = '' disabled selected>-- Select Status --</option>
+                <option value = 'Not Watched'>Not Watched</option>
+                <option value = 'Started'>Started</option>
+                <option value = 'Finished'>Finished</option>
+              </select> 
+            </div>
+            <span style = 'color: red;'>*</span>
+          </div>
+          <br />
+          <div class = 'group'>
+            <button id = 'close-popup' class = 'popup-close-btn'> Close </button>
+            <span style = 'visibility: hidden;'>*************************</span>
+            <button id = 'submit-popup' class = 'popup-submit-btn'> Submit </button>
+          </div>
+          <br />
+        </div>       
+      </div>
+    </div>
+  </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script type = 'module' src = 'index.js'></script>
     <script src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>

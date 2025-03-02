@@ -1,8 +1,12 @@
 body.main {
   background-color: #F9E4BC;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 100px 100px 100px 100px;
-
+  margin: 0px 0px 100px 0px;
+  padding: 25px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -20,7 +24,7 @@ p {
 }
 
 button {
-  color: #FF6363;
+  color: blue;
 }
 
 #innerbox {
@@ -29,6 +33,8 @@ button {
   min-width: 600px; 
   padding: 25px; 
   width: 100%;  
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .puset{
@@ -40,16 +46,17 @@ button {
   display: none; 
   position: fixed;
   border-radius: 25px;  
-  padding-left: 15%; 
-  padding-top: 25px;
+  padding: 25px; 
 
-  top: 20%;
-  left: 25%;
-  width: 50%;
-  height: 65%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: rgb(105, 91, 91); 
   z-index: 1000;
-  min-width: 450px; 
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-height: 100vh;
+  overflow-y:scroll;
 }
 
 .popup-field {
@@ -61,32 +68,17 @@ button {
 }
 
 .popup-delete-btn {
-  position: fixed;
-  top: 25%;
-  left: 30%;
+  position: relative;
+  left: 40%;
   color: red;
 }
 .popup-submit-btn {
-  position: fixed;
-  bottom: 20%;
-  right: 30%;
   color: green;
 }
 
 .popup-close-btn {
-  position: fixed;
-  bottom: 20%;
-  left: 30%;
   color: red;
 }
-
-.close-edit-popup{
-  position: fixed;
-  bottom: 20%;
-  left: 30%;
-  color: blue;
-}
-
 
 input[type=text]:focus {
   border: 1px solid #17427a;
@@ -109,10 +101,6 @@ input[type=text]:focus {
   display: flex;
   align-items: center;
   gap: 5px;
-}
-
-#movie-status option[disabled] {
-  color: gray;
 }
 
 input[type="text"], select {
