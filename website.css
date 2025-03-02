@@ -209,9 +209,9 @@ input[type=text]:focus {
     left: 80%;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   #innerbox {
-    min-width: 300px; 
+    min-width: 200px; 
   }
   #add-btn {
     left: 80%;
