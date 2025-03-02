@@ -34,7 +34,7 @@ button {
   width: 100%;  
   margin: 0 auto;
   box-sizing: border-box;
-  max-height: 100vh;
+  max-width: 100vh;
   overflow-x: auto;
 }
 
