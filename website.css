@@ -35,7 +35,7 @@ button {
   margin: 0 auto;
   box-sizing: border-box;
   max-height: 100vh;
-  overflow-y:scroll;
+  overflow-x: auto;
 }
 
 .puset{
@@ -57,7 +57,7 @@ button {
   margin: 0 auto;
   box-sizing: border-box;
   max-height: 100vh;
-  overflow-y:scroll;
+  overflow-y: auto;
 }
 
 .popup-field {
