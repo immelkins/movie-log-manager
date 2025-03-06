@@ -8,7 +8,6 @@ window.onload = function() {
   const closePopupBtn = document.getElementById("close-popup");
   const submitBtn = document.getElementById("submit-popup");
 
-
   //List all Movies by default
   displayMovies(model.data.movies);
 
@@ -59,61 +58,37 @@ window.onload = function() {
   }
 
   function addMovie() {
-    const title = document.getElementById('movie-title').value.trim();
-    const genre = document.getElementById('movie-genre').value.trim();
-    const director = document.getElementById('movie-by').value.trim();
-    let movieDate = parseInt(document.getElementById('movie-year').value);
-    let rating = Math.round(parseFloat(document.getElementById('movie-rating').value) * 10)/10;
-    const status = document.getElementById('movie-status').value.trim();
-    
-    if(!title && !director && (movieDate < 1800 || movieDate > 2030) && status == '') 
-      { playAlert(); alert('Please fill in a Title, Director, Release Year (1800 - 2030), and Select Status'); return; }
-    else if(!title && !director && (movieDate < 1800 || movieDate > 2030)) 
-      { playAlert(); alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
-    else if (!title && !director && status == '')
-      { playAlert(); alert('Please fill in a Title, Director, and Select Status'); return; }  
-    else if (!title && (movieDate < 1800 || movieDate > 2030) && status == '')
-      { playAlert(); alert('Please fill in a Title and a valid Release Year (1800 - 2030), and Select Status'); return; }
-    else if(!director && (movieDate < 1800 || movieDate > 2030) && status == '') 
-      { playAlert(); alert('Please fill in a Director, Release Year (1800 - 2030), and Select Status'); return; }
-    else if (!title && !director)
-      { playAlert(); alert('Please fill in a Title and Director'); return; }
-    else if (!title && (movieDate < 1800 || movieDate > 2030))
-      { playAlert(); alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; }
-    else if (!title && status == '')
-      { playAlert(); alert('Please fill in a Title and Select Status'); return; }  
-    else if (!director && (movieDate < 1800 || movieDate > 2030))
-      { playAlert(); alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
-    else if (!director && status == '')
-      { playAlert(); alert('Please fill in a Director and Select Status'); return; }
-    else if ((movieDate < 1800 || movieDate > 2030) && status == '')
-      { playAlert(); alert('Please fill in a valid Release Year (1800 - 2030) and Select Status'); return; }
-    else if (!title)
-      { playAlert(); alert('Please fill in a Title'); return; }
-    else if (!director)
-      { playAlert(); alert('Please fill in a Director'); return; }
-    else if (movieDate < 1800 || movieDate > 2030)
-      { playAlert(); alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
-    else if (status == '')
-      { playAlert(); alert('Please Select Status'); return; }
-
-    if(isNaN(movieDate) || movieDate == '') 
-      { movieDate = ' - - - - '; }
-    
-    if(isNaN(rating) || rating == '') 
-      { rating = ' - '; }
-    else if(rating < 0 || rating > 10) 
-        { playAlert(); alert('Please fill in a valid Rating (1-10)'); return; }
-    
     const newMovie = {
       movieID: (model.data.movies.length),
-      title,
-      genre,
-      director,
-      movieDate,
-      rating,
-      status
+      title: document.getElementById('movie-title').value.trim(),
+      genre: document.getElementById('movie-genre').value.trim(),
+      director: document.getElementById('movie-by').value.trim(),
+      movieDate: parseInt(document.getElementById('movie-year').value),
+      rating: Math.round(parseFloat(document.getElementById('movie-rating').value) * 10)/10,
+      status: document.getElementById('movie-status').value.trim()
     };
+   
+    //Append all missing and incorrect fields to alrtmsg 
+    let alertmsg = '';
+    if(!newMovie.title) 
+      { alertmsg += '\nTitle'; }
+    if(!newMovie.director)
+      alertmsg += '\nDirector';
+    if(newMovie.movieDate < 1800 || newMovie.movieDate > 2030) 
+      { alertmsg += '\nRelease Year (1800 - 2030)'; }
+    if(newMovie.rating < 0 || newMovie.rating > 10) 
+      { alertmsg += '\nPlease fill in a valid Rating (1-10)'; }
+    if(newMovie.status == '') 
+      { alertmsg += '\nSelect Status'; }
+
+    if(!(alertmsg === ''))
+      { playAlert(); alert('Please fill in: ' + alertmsg); return; }
+
+    if(isNaN(newMovie.movieDate)) 
+      { newMovie.movieDate = ' - - - - '; }
+     
+    if(isNaN(newMovie.rating)) 
+      { newMovie.rating = ' - '; }
     
     popup.style.display = "none";
     model.data.movies.push(newMovie);
@@ -126,7 +101,7 @@ window.onload = function() {
     const searchInput = document.getElementById('search-bar').value.toLowerCase().trim();
 
     // If search bar is empty show all movies
-    if (searchInput === "") {
+    if (searchInput === '') {
         displayMovies(model.data.movies);
         return;
     }
@@ -187,34 +162,29 @@ window.onload = function() {
         status: document.getElementById('edit-movie-status').value
     };
 
-    if(!updateMovie.title && !updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)) 
-      { playAlert(); alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
-    else if (!updateMovie.title && !updateMovie.director)
-      { playAlert(); alert('Please fill in a Title and Director'); return; }
-    else if (!updateMovie.title && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030))
-      { playAlert(); alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; } 
-    else if (!updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030))
-      { playAlert(); alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
-    else if (!updateMovie.title)
-      { playAlert(); alert('Please fill in a Title'); return; }
-    else if (!updateMovie.director)
-      { playAlert(); alert('Please fill in a Director'); return; }
-    else if (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)
-      { playAlert(); alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
+    // Append all missing and incorrect fields to alrtmsg 
+    let alertmsg = '';
+    if(!updateMovie.title) 
+      alertmsg += '\nTitle';
+    if(!updateMovie.director)
+      alertmsg += '\nDirector';
+    if(updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030) 
+      alertmsg += '\nRelease Year (1800 - 2030)';
+    if(updateMovie.rating < 0 || updateMovie.rating > 10) 
+      alertmsg += '\nPlease fill in a valid Rating (1-10)';
 
-    if(isNaN(updateMovie.movieDate) || updateMovie.movieDate == '') 
+    if(!(alertmsg === ''))
+      { playAlert(); alert('Please fill in: ' + alertmsg); return; }
+
+    if(isNaN(updateMovie.movieDate)) 
       { updateMovie.movieDate = ' - - - - '; }
     
-    if(isNaN(updateMovie.rating) || updateMovie.rating == '') 
+    if(isNaN(updateMovie.rating)) 
       { updateMovie.rating = ' - '; }
-    else if(updateMovie.rating < 0 || updateMovie.rating > 10) 
-        { playAlert(); alert('Please fill in a valid Rating (1-10)'); return; }
 
-    // Update & Reload
+    // Update, Close popup & Reload 
     model.data.movies[index] = updateMovie;
     displayMovies(model.data.movies);
-
-    // Close edit popup
     document.getElementById('edit-popup').style.display = "none";
     playSuccess();
   }
@@ -228,10 +198,8 @@ window.onload = function() {
       movie.movieID = newMovieID;
     });
 
-    // Update & Reload
-    displayMovies(model.data.movies);
-
-    // Close edit popup
+    // Update, Close popup & Reload 
+     (model.data.movies);
     document.getElementById('edit-popup').style.display = "none";
   }
 
@@ -245,24 +213,24 @@ window.onload = function() {
     //no need to clear the status
   }
 
-  //Play Audio Functions
+  // Play Audio Functions
   function playAlert() {
-    let A = document.getElementById("alert")
+    let A = document.getElementById("alert");
     A.volume = 0.1;
     A.play();
   }
   function playSuccess() {
-    let A = document.getElementById("success")
+    let A = document.getElementById("success");
     A.volume = 0.1;
     A.play();
   }
   function playCancel() {
-    let A = document.getElementById("cancel")
+    let A = document.getElementById("cancel");
     A.volume = 1.0;
     A.play();
   }
-  
-  //FOR BUTTONS
+
+  // FOR BUTTONS
   // Open Add Movie Popup
   addPopupBtn.addEventListener("click", () => {
       popup.style.display = "flex";
@@ -279,8 +247,8 @@ window.onload = function() {
 
   // Search for a Movie in searchbar
   document.getElementById('search-btn').addEventListener("click", searchMovie);
-  
 
+  // Filter Movie by ...
   document.getElementById('filter-by-nw-btn').addEventListener("click", function() {
     filterMovies('Not Watched');
   });
