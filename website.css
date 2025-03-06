@@ -19,6 +19,7 @@ h2 {
 }
 
 p {
+  text-align: center;
   color: #8D6B94;
 }
 
@@ -43,7 +44,6 @@ button {
   color: #8d5594;
   text-align: center;
 }
-
 
 #movies-container {
   overflow-x: auto;
@@ -159,7 +159,7 @@ button {
 }
 
 input[type="text"], select {
-  width: 70%; 
+  width: 80%; 
   min-width: 300px; 
   padding: 10px 20px;
   border: 1px solid #ccc;
@@ -200,6 +200,9 @@ input[type=text]:focus {
   #add-btn {
     left: 85%;
   }  
+  input[type="text"], select {
+    width: 75%;
+  }
 }
 @media (max-width: 800px) {
   #innerbox {
@@ -207,6 +210,9 @@ input[type=text]:focus {
   }
   #add-btn {
     left: 80%;
+  }
+  input[type="text"], select {
+    width: 70%;
   }
 }
 @media (max-width: 550px) {
@@ -216,6 +222,9 @@ input[type=text]:focus {
   #add-btn {
     left: 70%;
   }
+  input[type="text"], select {
+    width: 65%;
+  }
 }
 @media (max-width: 500px) {
   #innerbox {
@@ -224,4 +233,15 @@ input[type=text]:focus {
   #add-btn {
     left: 70%;
   }
+  input[type="text"], select {
+    width: 60%;
+  }
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
 }

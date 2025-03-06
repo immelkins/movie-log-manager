@@ -3,10 +3,10 @@ import Model from './model.js';
 window.onload = function() {
   // Get elements
   const model = new Model();
-  const popup = document.getElementById("add-popup");
-  const addPopupBtn = document.getElementById("add-btn");
-  const closePopupBtn = document.getElementById("close-popup");
-  const submitBtn = document.getElementById("submit-popup");
+  const popup = document.getElementById('add-popup');
+  const addPopupBtn = document.getElementById('add-btn');
+  const closePopupBtn = document.getElementById('close-popup');
+  const submitBtn = document.getElementById('submit-popup');
 
   //List all Movies by default
   displayMovies(model.data.movies);
@@ -14,7 +14,7 @@ window.onload = function() {
   function displayMovies(movieList) {
     const container = document.getElementById('movies-container');
     container.innerHTML = `
-      <table class="table table-hover">
+      <table class='table table-hover'>
         <thead>
           <tr>
             <th>Title</th>
@@ -26,9 +26,9 @@ window.onload = function() {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody id="movie-table-body"></tbody>
-      </table>
-    `;
+        <tbody id = 'movie-table-body'></tbody>
+      </table>`
+    ;
 
     const tableBody = document.getElementById('movie-table-body');
 
@@ -41,16 +41,14 @@ window.onload = function() {
           <td>${movie.movieDate}</td>
           <td>${movie.rating}/10</td>
           <td>${movie.status}</td>
-          <td>
-            <button class="edit-btn btn" data-index="${movie.movieID}">Edit</button>
-          </td>
-        </tr>
-      `;
+          <td><button class = 'edit-btn' data-index = '${movie.movieID}'>Edit</button></td>
+        </tr>`
+      ;
 
       tableBody.innerHTML += row;
       document.querySelectorAll('.edit-btn').forEach(button => {
-        button.addEventListener("click", function() {
-          const index = this.getAttribute("data-index");
+        button.addEventListener('click', function() {
+          const index = this.getAttribute('data-index');
             openEditPopup(index);
         });
       });
@@ -90,7 +88,7 @@ window.onload = function() {
     if(isNaN(newMovie.rating)) 
       { newMovie.rating = ' - '; }
     
-    popup.style.display = "none";
+    popup.style.display = 'none';
     model.data.movies.push(newMovie);
     displayMovies(model.data.movies);    
     clearUserInput();
@@ -113,7 +111,7 @@ window.onload = function() {
     document.getElementById('search-bar').value = '';
     // If no movies are found display a message
     if (searchedMovies.length === 0)
-      document.getElementById('movies-container').innerHTML = "<p>No movies found :( </p>";
+      document.getElementById('movies-container').innerHTML = '<img src="image/not_found.gif" alt="Confused Man on Computer" width="400" height="400"><p>NO MOVIES FOUND :(</p>';
     else 
       displayMovies(searchedMovies);
   }
@@ -124,7 +122,7 @@ window.onload = function() {
     );
     //If no movies are found display a message
     if (filteredMovies.length === 0)
-      document.getElementById('movies-container').innerHTML = "<p>No movies found :( </p>";
+      document.getElementById('movies-container').innerHTML = '<p>No movies found :( </p>';
     else 
       displayMovies(filteredMovies);
   }
@@ -141,7 +139,7 @@ window.onload = function() {
     document.getElementById('edit-movie-status').value = movie.status;
 
     // Show edit popup
-    document.getElementById('edit-popup').style.display = "flex";
+    document.getElementById('edit-popup').style.display = 'flex';
 
     // Set event listener for saving changes
     document.getElementById('save-edit-popup').onclick = function() 
@@ -185,7 +183,7 @@ window.onload = function() {
     // Update, Close popup & Reload 
     model.data.movies[index] = updateMovie;
     displayMovies(model.data.movies);
-    document.getElementById('edit-popup').style.display = "none";
+    document.getElementById('edit-popup').style.display = 'none';
     playSuccess();
   }
 
@@ -199,8 +197,8 @@ window.onload = function() {
     });
 
     // Update, Close popup & Reload 
-     (model.data.movies);
-    document.getElementById('edit-popup').style.display = "none";
+    displayMovies(model.data.movies);
+    document.getElementById('edit-popup').style.display = 'none';
   }
 
   function clearUserInput()
@@ -215,53 +213,53 @@ window.onload = function() {
 
   // Play Audio Functions
   function playAlert() {
-    let A = document.getElementById("alert");
+    let A = document.getElementById('alert');
     A.volume = 0.1;
     A.play();
   }
   function playSuccess() {
-    let A = document.getElementById("success");
+    let A = document.getElementById('success');
     A.volume = 0.1;
     A.play();
   }
   function playCancel() {
-    let A = document.getElementById("cancel");
+    let A = document.getElementById('cancel');
     A.volume = 1.0;
     A.play();
   }
 
   // FOR BUTTONS
   // Open Add Movie Popup
-  addPopupBtn.addEventListener("click", () => {
-      popup.style.display = "flex";
+  addPopupBtn.addEventListener('click', () => {
+      popup.style.display = 'flex';
   });
 
   // Close Add Movie Popup
-  closePopupBtn.addEventListener("click", () => {
-      popup.style.display = "none";
+  closePopupBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
       playCancel();
   });
 
   // Submit and Close Add Movie Popup
-  submitBtn.addEventListener("click", addMovie);
+  submitBtn.addEventListener('click', addMovie);
 
   // Search for a Movie in searchbar
-  document.getElementById('search-btn').addEventListener("click", searchMovie);
+  document.getElementById('search-btn').addEventListener('click', searchMovie);
 
   // Filter Movie by ...
-  document.getElementById('filter-by-nw-btn').addEventListener("click", function() {
+  document.getElementById('filter-by-nw-btn').addEventListener('click', function() {
     filterMovies('Not Watched');
   });
-  document.getElementById('filter-by-s-btn').addEventListener("click", function() {
+  document.getElementById('filter-by-s-btn').addEventListener('click', function() {
     filterMovies('Started');
   });
-  document.getElementById('filter-by-f-btn').addEventListener("click", function() {
+  document.getElementById('filter-by-f-btn').addEventListener('click', function() {
     filterMovies('Finished');
   });
 
   // Close Edit Movie Popup
-  document.getElementById('close-edit-popup').addEventListener("click", function() {
-    document.getElementById('edit-popup').style.display = "none";
+  document.getElementById('close-edit-popup').addEventListener('click', function() {
+    document.getElementById('edit-popup').style.display = 'none';
     playCancel();
   });
 };
