@@ -67,35 +67,35 @@ window.onload = function() {
     const status = document.getElementById('movie-status').value.trim();
     
     if(!title && !director && (movieDate < 1800 || movieDate > 2030) && status == '') 
-      { alert('Please fill in a Title, Director, Release Year (1800 - 2030), and Select Status'); return; }
+      { playAlert(); alert('Please fill in a Title, Director, Release Year (1800 - 2030), and Select Status'); return; }
     else if(!title && !director && (movieDate < 1800 || movieDate > 2030)) 
-      { alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
     else if (!title && !director && status == '')
-      { alert('Please fill in a Title, Director, and Select Status'); return; }  
+      { playAlert(); alert('Please fill in a Title, Director, and Select Status'); return; }  
     else if (!title && (movieDate < 1800 || movieDate > 2030) && status == '')
-      { alert('Please fill in a Title and a valid Release Year (1800 - 2030), and Select Status'); return; }
+      { playAlert(); alert('Please fill in a Title and a valid Release Year (1800 - 2030), and Select Status'); return; }
     else if(!director && (movieDate < 1800 || movieDate > 2030) && status == '') 
-      { alert('Please fill in a Director, Release Year (1800 - 2030), and Select Status'); return; }
+      { playAlert(); alert('Please fill in a Director, Release Year (1800 - 2030), and Select Status'); return; }
     else if (!title && !director)
-      { alert('Please fill in a Title and Director'); return; }
+      { playAlert(); alert('Please fill in a Title and Director'); return; }
     else if (!title && (movieDate < 1800 || movieDate > 2030))
-      { alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; }
     else if (!title && status == '')
-      { alert('Please fill in a Title and Select Status'); return; }  
+      { playAlert(); alert('Please fill in a Title and Select Status'); return; }  
     else if (!director && (movieDate < 1800 || movieDate > 2030))
-      { alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
     else if (!director && status == '')
-      { alert('Please fill in a Director and Select Status'); return; }
+      { playAlert(); alert('Please fill in a Director and Select Status'); return; }
     else if ((movieDate < 1800 || movieDate > 2030) && status == '')
-      { alert('Please fill in a valid Release Year (1800 - 2030) and Select Status'); return; }
+      { playAlert(); alert('Please fill in a valid Release Year (1800 - 2030) and Select Status'); return; }
     else if (!title)
-      { alert('Please fill in a Title'); return; }
+      { playAlert(); alert('Please fill in a Title'); return; }
     else if (!director)
-      { alert('Please fill in a Director'); return; }
+      { playAlert(); alert('Please fill in a Director'); return; }
     else if (movieDate < 1800 || movieDate > 2030)
-      { alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
     else if (status == '')
-      { alert('Please Select Status'); return; }
+      { playAlert(); alert('Please Select Status'); return; }
 
     if(isNaN(movieDate) || movieDate == '') 
       { movieDate = ' - - - - '; }
@@ -103,7 +103,7 @@ window.onload = function() {
     if(isNaN(rating) || rating == '') 
       { rating = ' - '; }
     else if(rating < 0 || rating > 10) 
-        { alert('Please fill in a valid Rating (1-10)'); return; }
+        { playAlert(); alert('Please fill in a valid Rating (1-10)'); return; }
     
     const newMovie = {
       movieID: (model.data.movies.length),
@@ -119,6 +119,7 @@ window.onload = function() {
     model.data.movies.push(newMovie);
     displayMovies(model.data.movies);    
     clearUserInput();
+    playSuccess();
   }
 
   function searchMovie() {
@@ -187,19 +188,19 @@ window.onload = function() {
     };
 
     if(!updateMovie.title && !updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)) 
-      { alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a Title, Director, Release Year (1800 - 2030)'); return; }
     else if (!updateMovie.title && !updateMovie.director)
-      { alert('Please fill in a Title and Director'); return; }
+      { playAlert(); alert('Please fill in a Title and Director'); return; }
     else if (!updateMovie.title && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030))
-      { alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; } 
+      { playAlert(); alert('Please fill in a Title and a valid Release Year (1800 - 2030)'); return; } 
     else if (!updateMovie.director && (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030))
-      { alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a Director and a valid Release Year (1800 - 2030)'); return; }
     else if (!updateMovie.title)
-      { alert('Please fill in a Title'); return; }
+      { playAlert(); alert('Please fill in a Title'); return; }
     else if (!updateMovie.director)
-      { alert('Please fill in a Director'); return; }
+      { playAlert(); alert('Please fill in a Director'); return; }
     else if (updateMovie.movieDate < 1800 || updateMovie.movieDate > 2030)
-      { alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
+      { playAlert(); alert('Please fill in a valid Release Year (1800 - 2030)'); return; }
 
     if(isNaN(updateMovie.movieDate) || updateMovie.movieDate == '') 
       { updateMovie.movieDate = ' - - - - '; }
@@ -207,7 +208,7 @@ window.onload = function() {
     if(isNaN(updateMovie.rating) || updateMovie.rating == '') 
       { updateMovie.rating = ' - '; }
     else if(updateMovie.rating < 0 || updateMovie.rating > 10) 
-        { alert('Please fill in a valid Rating (1-10)'); return; }
+        { playAlert(); alert('Please fill in a valid Rating (1-10)'); return; }
 
     // Update & Reload
     model.data.movies[index] = updateMovie;
@@ -215,6 +216,7 @@ window.onload = function() {
 
     // Close edit popup
     document.getElementById('edit-popup').style.display = "none";
+    playSuccess();
   }
 
   function deleteEditMovie(index) { 
@@ -243,6 +245,23 @@ window.onload = function() {
     //no need to clear the status
   }
 
+  //Play Audio Functions
+  function playAlert() {
+    let A = document.getElementById("alert")
+    A.volume = 0.1;
+    A.play();
+  }
+  function playSuccess() {
+    let A = document.getElementById("success")
+    A.volume = 0.1;
+    A.play();
+  }
+  function playCancel() {
+    let A = document.getElementById("cancel")
+    A.volume = 1.0;
+    A.play();
+  }
+  
   //FOR BUTTONS
   // Open Add Movie Popup
   addPopupBtn.addEventListener("click", () => {
@@ -252,6 +271,7 @@ window.onload = function() {
   // Close Add Movie Popup
   closePopupBtn.addEventListener("click", () => {
       popup.style.display = "none";
+      playCancel();
   });
 
   // Submit and Close Add Movie Popup
@@ -274,5 +294,6 @@ window.onload = function() {
   // Close Edit Movie Popup
   document.getElementById('close-edit-popup').addEventListener("click", function() {
     document.getElementById('edit-popup').style.display = "none";
+    playCancel();
   });
 };
