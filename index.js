@@ -56,10 +56,18 @@ window.onload = function() {
   }
 
   function addMovie() {
+    var genreArray = [];
+    var checkboxes = document.querySelectorAll('input[name = "genre"]:checked');
+    
+    for (var i = 0; i < checkboxes.length; i++)
+      genreArray.push(checkboxes[i].value);
+
+    var genreList = genreArray.join(' ');    
+
     const newMovie = {
       movieID: (model.data.movies.length),
       title: document.getElementById('movie-title').value.trim(),
-      genre: document.getElementById('movie-genre').value.trim(),
+      genre: genreList,
       director: document.getElementById('movie-by').value.trim(),
       movieDate: parseInt(document.getElementById('movie-year').value),
       rating: Math.round(parseFloat(document.getElementById('movie-rating').value) * 10)/10,
@@ -90,7 +98,8 @@ window.onload = function() {
     
     popup.style.display = 'none';
     model.data.movies.push(newMovie);
-    displayMovies(model.data.movies);    
+    displayMovies(model.data.movies);  
+    
     clearUserInput();
     playSuccess();
   }
@@ -137,6 +146,17 @@ window.onload = function() {
     document.getElementById('edit-movie-year').value = movie.movieDate;
     document.getElementById('edit-movie-rating').value = movie.rating;
     document.getElementById('edit-movie-status').value = movie.status;
+    
+    var allCheckboxes = document.querySelectorAll('input[name = "genre"]');
+    for (var i = 0; i < allCheckboxes.length; i++)
+      allCheckboxes[i].checked = false;
+
+    var genreList = movie.genre.split(' ');
+    for (var i = 0; i < genreList.length; i++) {
+      var genreCheckbox = document.getElementById('Genre-' + genreList[i]);
+      if (genreCheckbox)
+        genreCheckbox.checked = true;
+    }
 
     // Show edit popup
     document.getElementById('edit-popup').style.display = 'flex';
@@ -150,10 +170,17 @@ window.onload = function() {
   }
 
   function saveEditMovie(index) {
+    var newGenreList = [];
+    var checkedCheckboxes = document.querySelectorAll('input[name = "edit-genre"]:checked');
+    
+    for (var i = 0; i < checkedCheckboxes.length; i++)
+      newGenreList.push(checkedCheckboxes[i].value);
+    newGenreList = newGenreList.join(' ');
+
     const updateMovie = {
         movieID: model.data.movies[index].movieID,
         title: document.getElementById('edit-movie-title').value.trim(),
-        genre: document.getElementById('edit-movie-genre').value.trim(),
+        genre: newGenreList,
         director: document.getElementById('edit-movie-by').value.trim(),
         movieDate: parseInt(document.getElementById('edit-movie-year').value),
         rating: Math.round(parseFloat(document.getElementById('edit-movie-rating').value) * 10)/10,
@@ -185,6 +212,7 @@ window.onload = function() {
     displayMovies(model.data.movies);
     document.getElementById('edit-popup').style.display = 'none';
     playSuccess();
+    clearUserInput();
   }
 
   function deleteEditMovie(index) { 
@@ -204,11 +232,14 @@ window.onload = function() {
   function clearUserInput()
   {
     document.getElementById('movie-title').value = '';
-    document.getElementById('movie-genre').value = '';
     document.getElementById('movie-by').value = '';
     document.getElementById('movie-year').value = '';
     document.getElementById('movie-rating').value = '';
-    //no need to clear the status
+    document.getElementById('movie-status').selectedIndex = 0;   
+
+    var allCheckboxes = document.querySelectorAll('input[name = "genre"]');
+    for (var i = 0; i < allCheckboxes.length; i++)
+      allCheckboxes[i].checked = false;
   }
 
   // Play Audio Functions

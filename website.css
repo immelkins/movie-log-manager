@@ -117,6 +117,12 @@ button {
   color: white;
 }
 
+#genre-btn {
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -128,6 +134,19 @@ button {
   background-color: white;
   min-width: 160px;
   z-index: 1;
+}
+
+.dropdown-content label[for] {
+  width: 50%; 
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  appearance: none;
+  min-width: 140px ;
+}
+.dropdown-content label[for]:hover {
+  background-color: #27afbe;
+  color: white;
 }
 
 .dropdown-content button {
@@ -158,6 +177,11 @@ button {
   text-align: left;
 }
 
+input[type="checkbox"]:checked + label {
+  background-color: #27afbe; 
+  color: white;
+}
+
 input[type="text"], select {
   width: 80%; 
   min-width: 300px; 
@@ -175,7 +199,9 @@ input[type=text]:focus {
 
 .popup-overlay input[type="text"], 
 .popup-overlay input[type="number"], 
+.popup-overlay #genre-btn,
 .popup-overlay select {
+
   width: 80%; 
   min-width: 300px; 
   padding: 10px 20px;
@@ -185,13 +211,11 @@ input[type=text]:focus {
   appearance: none;
   margin: 10px 0;
 }
-
 .group{
   display: flex;
   align-items: center;
   gap: 5px;
 }
-
 
 @media (max-width: 1200px) {
   #innerbox {
